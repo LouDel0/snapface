@@ -1,3 +1,2 @@
-<app-face-snap [faceSnap]="mySnap1"></app-face-snap>
-<app-face-snap [faceSnap]="mySnap2"></app-face-snap>
-<app-face-snap [faceSnap]="mySnap3"></app-face-snap>
+<!-- Boucle pour afficher le tableau contenu du tableau FaceSnaps -->
+<app-face-snap *ngFor="let faceSnap of faceSnaps" [faceSnap]="faceSnap"></app-face-snap>

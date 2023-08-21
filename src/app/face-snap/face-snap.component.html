@@ -1,14 +1,25 @@
 <div class="face-snap-card">
+
     <!-- Méthode de string interpolation pour afficher des données -->
     <h2>{{faceSnap.title}}</h2>
-    <p>Mis en ligne le {{faceSnap.createDate}}</p>
+
+    <p> 📆 Mis en ligne le {{faceSnap.createDate}} </p>
+
     <img [src]="faceSnap.imageURL" [alt]="faceSnap.title">
+
     <p>{{faceSnap.description}}</p>
+
     <!-- Condition pour afficher la localisation -->
-    <p *ngIf="faceSnap.location">Photo prise à {{faceSnap.location}}</p>
+    <p *ngIf="faceSnap.location; else templateName"> 📍 Photo prise à {{faceSnap.location}}</p>
+    <ng-template #templateName>
+        📍 Pas de localisation
+    </ng-template>
+    
     <p>
         <!-- Lier la méthode TS -->
         <button (click)="onSnap()">{{buttonText}}</button>
-        ❤️ {{faceSnap.snaps}}
+        
+        <span [ngStyle]="{color: 'rgb(0, ' + faceSnap.snaps/2 + ', 0)'}"> ❤️ {{faceSnap.snaps}} </span>
     </p>
+    
 </div>
