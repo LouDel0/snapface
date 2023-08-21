@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
       {
         title: "Yellow",
         description: "Mon compagnon de route, il ne me quitte jamais ^^ ",
-        imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfMvMA_h2spVzuDAqbtQIV51Dd8-amNMw6KA&usqp=CAU",
+        imageURL: "https://cdn.pixabay.com/photo/2023/03/01/14/09/dog-7823201_1280.jpg",
         createDate: new Date(),
         snaps: 350,
       }
