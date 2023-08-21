@@ -2,8 +2,10 @@
     <!-- Méthode de string interpolation pour afficher des données -->
     <h2>{{faceSnap.title}}</h2>
     <p>Mis en ligne le {{faceSnap.createDate}}</p>
-    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+    <img [src]="faceSnap.imageURL" [alt]="faceSnap.title">
     <p>{{faceSnap.description}}</p>
+    <!-- Condition pour afficher la localisation -->
+    <p *ngIf="faceSnap.location">Photo prise à {{faceSnap.location}}</p>
     <p>
         <!-- Lier la méthode TS -->
         <button (click)="onSnap()">{{buttonText}}</button>
