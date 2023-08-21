@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FaceSnap } from '../models/face-snap.model';
 
 //Décorateur : apporte des modifications à une classe
 @Component({
@@ -7,19 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./face-snap.component.scss']
 })
 export class FaceSnapComponent implements OnInit {
+  @Input() faceSnap!: FaceSnap;
+
   title!: string;
   description!: string;
   createDate!: Date;
   snaps!: number;
   imageUrl!: string;
+  buttonText!: string;
 
   //Initialisation du component
   ngOnInit(): void {
-    //Initialisation en dur des propriétés
-    this.title = "Bella";
-    this.description = "Couché de soleil magnifique pour des vacances de rêves 🤩 ! ";
-    this.createDate = new Date();
-    this.snaps = 654;
-    this.imageUrl = "https://live.staticflickr.com/7085/28033641215_e44a875085_c.jpg";
+    this.buttonText = "Oh Snap !";
+  }
+
+  //Ajouter un événement TS
+  onSnap() {
+    if(this.buttonText === "Oh Snap !") {
+      this.faceSnap.snaps++;
+      this.buttonText = "UnSnap"
+    }
+    else {
+      this.faceSnap.snaps--;
+      this.buttonText = "Oh Snap !";
+    }
   }
 }
